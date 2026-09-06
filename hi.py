@@ -1,26 +1,39 @@
-listKo = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+number = input("Input a number from 1 to 10: ")
 
-for digit in listKo:
-    divisibles = []
-    if digit % 1 == 0:
-        divisibles.append(1)
-    if digit % 2 == 0:
-        divisibles.append(2)
-    if digit % 3 == 0:
-        divisibles.append(3)
-    if digit % 4 == 0:
-        divisibles.append(4)
-    if digit % 5 == 0:
-        divisibles.append(5)
-    if digit % 6 == 0:
-        divisibles.append(6)
-    if digit % 7 == 0:
-        divisibles.append(7)
-    if digit % 8 == 0:
-        divisibles.append(8)
-    if digit % 9 == 0:
-        divisibles.append(9)
-    if digit % 10 == 0:
-        divisibles.append(10)
+validCharacters = "0123456789"
+validInput = True
+invalidCharacters = []
 
-    print(f"Digit {digit} is divisible be {divisibles}")
+for char in number:
+    if char not in validCharacters:
+        validInput = False
+        invalidCharacters.append(char)
+
+if validInput:
+    number = int(number)
+
+    match number:
+        case 1:
+            print("One")
+        case 2:
+            print("Two")
+        case 3:
+            print("Three")
+        case 4:
+            print("Four")
+        case 5:
+            print("Five")
+        case 6:
+            print("Six")
+        case 7:
+            print("Seven")
+        case 8:
+            print("Eight")
+        case 9:
+            print("Nine")
+        case 10:
+            print("Ten")
+        case _:
+            print("What fucking number did you put in? I said 1-10")
+else:
+    print(f"You have entered an invalid character(s): {invalidCharacters}")
