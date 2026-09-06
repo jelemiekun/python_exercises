@@ -1,26 +1,24 @@
-x = "variable"
+name = input("What is your name? (Should be 8 characters and above) ")
+
+name_len = len(name)
+passed = False
 
 
-def myfunc():
-    global x
-    global y
-    y = 15
-    print(x)
-    x = "changed"
+def dontKnow():
+    print("Who the fuck are you?")
 
 
-def secFunc():
-    global y
-    y = 20
-    print(y)
+if name_len >= 8:
+    print("PASS")
+    passed = True
+else:
+    passed = False
+    dontKnow()
 
+if passed:
+    is_name_Jason = "Jason" in name or "jason" in name
 
-myfunc()
-
-print(x)
-
-print(y)
-
-secFunc()
-
-print(y)
+    if is_name_Jason:
+        print("Hello, Jason!")
+    else:
+        dontKnow()
