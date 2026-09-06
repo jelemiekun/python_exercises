@@ -1,51 +1,30 @@
-name = input("What is your name? ")
+details = [str(""), int(), float(), int()]
 
-englishAlphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
-digits = "0123456789"
+details[0] = input("What is your name? ")
 
-nameHasSpecialCharac = False
-invalid_char = ""
+validCharactersForName = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ "
+nameHasSpecialDigit = False
 
-for char in name:
-    char_passed = False
-    for charEnglishAlphbet in englishAlphabet:
-        if char == charEnglishAlphbet:
-            char_passed = True
-            break
+for char in details[0]:
+    if char not in validCharactersForName:
+        print(f"Invalid Character: {char}")
 
-    nameHasSpecialCharac = not char_passed
-    invalid_char = char
+details[1] = input("What is your age? ")
 
-    if nameHasSpecialCharac:
-        break
+validDigits = "0123456789"
 
-    print("Character passed: ", char)
+for digit in details[1]:
+    if digit not in validDigits:
+        print(f"Invalid Character: {details[1]}")
 
-if nameHasSpecialCharac:
-    print(f"INVALID: Your name has special character: {invalid_char}")
-else:
-    print(name[1:3])
-    print(name.upper())
-    print(name.replace("e", "3"))
-    print(name.strip())
-    name = name.strip()
-    names = name.split()
+details[2] = input("What is your height (meters)? ")
 
-    print(len(names))
+details[3] = input("What is your favorite number (whole number only)? ")
 
-    age = input("What is your age? ")
+for digit in details[3]:
+    if digit not in validDigits:
+        print(f"Invalid Character: {details[3]}")
 
-    ageHasInvalidDigit = False
-
-    for digit in age:
-        digit_passed = False
-        for validDigit in digits:
-            if digit == validDigit:
-                digit_passed = True
-
-        if not digit_passed:
-            ageHasInvalidDigit = not digit_passed
-            print(f"INVALID: Your name has invalid digit: {digit}")
-
-    if not ageHasInvalidDigit:
-        print(f"Hello, {name}, you are fucking {age} years old.")
+print(
+    f"Your name is {details[0]}, {details[1]} years old. You are {details[2]} tall. Your favorite number is {details[3]}"
+)
