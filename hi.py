@@ -1,14 +1,26 @@
-x, y, z = 1, 2, 3
+x = "variable"
+
+
+def myfunc():
+    global x
+    global y
+    y = 15
+    print(x)
+    x = "changed"
+
+
+def secFunc():
+    global y
+    y = 20
+    print(y)
+
+
+myfunc()
 
 print(x)
+
 print(y)
-print(z)
 
-name = input("What is your stupid name, dork? ")
+secFunc()
 
-print("Hello, ", name, ". Nya")
-
-a, b = 10, 20
-a, b = b, a
-
-print(a, ", ", b)
+print(y)
