@@ -1,24 +1,22 @@
-name = input("What is your name? (Should be 8 characters and above) ")
+name = input("What is your name? ")
 
-name_len = len(name)
-passed = False
+englishAlphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
 
+nameHasSpecialCharac = False
+invalid_char = ""
 
-def dontKnow():
-    print("Who the fuck are you?")
+for char in name:
+    char_passed = False
+    for charEnglishAlphbet in englishAlphabet:
+        if char == charEnglishAlphbet:
+            char_passed = True
 
+    nameHasSpecialCharac = not char_passed
+    invalid_char = char
 
-if name_len >= 8:
-    print("PASS")
-    passed = True
-else:
-    passed = False
-    dontKnow()
+    if nameHasSpecialCharac:
+        break
 
-if passed:
-    is_name_Jason = "Jason" in name or "jason" in name
+    print("Character passed: ", char)
 
-    if is_name_Jason:
-        print("Hello, Jason!")
-    else:
-        dontKnow()
+print('INVALID: Your name has special character: "', invalid_char, '" ')
