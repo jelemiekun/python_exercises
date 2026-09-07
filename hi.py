@@ -1,18 +1,18 @@
-def miniCalc(number: int, typeOfOperation: int = 0) -> int:
-    def innerFunc1AddTen(x: int) -> int:
-        return x + 10
+def func() -> None:
+    global meow
+    meow = 10
 
-    def innerFunc2SubTen(x: int) -> int:
-        return x - 10
+    def funccc() -> None:
+        meow = 30
 
-    match typeOfOperation:
-        case 1:
-            return innerFunc1AddTen(number)
-        case 2:
-            return innerFunc2SubTen(number)
-        case _:
-            print("ERROR: No type of operation defined OR invalid type operation.")
-            return number
+    funccc()
+
+    print(meow)
 
 
-print(miniCalc(50, 1))
+def printKo() -> None:
+    print(meow)
+
+
+func()
+printKo()
