@@ -1,66 +1,161 @@
-import sys
+fruits = ("apple", "banana", "apple", "orange", "apple", "grape")
 
-tupleKo = ("C++", "Javascript", "Java", "Python", "Assembly")
+print(f'Number of "Apples" appeared: {fruits.count("apple")}')
+print(f'Index of "orange": {fruits.index("orange")}')
 
-print(tupleKo[0])
-print(tupleKo[-1])
-print(tupleKo[:3])
-print(tupleKo[:-3])
+del fruits
+print("\n")
 
-
-tuple2 = (10, 25, 30, 45, 50)
-
-userInput1 = input("Input a number: ")
-
-validDigits = "0123456789"
-
-for char in userInput1:
-    if char not in validDigits:
-        print(f"ERROR: You have entered an invalid character: {char}")
-        print("Exiting program.")
-        sys.exit()
-
-userInput1 = int(userInput1)
+#
+#
+#
+#
+#
 
 
-if userInput1 in tuple2:
-    print(f"{userInput1} exists in the tuple")
-else:
-    print(f"{userInput1} does not exist in the tuple.")
+students = (("Alice", 98), ("Bob", 92), ("Charlie", 78), ("David", 95))
 
-del userInput1
-del validDigits
+for name, grade in students:
+    print(f"{name}: {grade}")
 
-tuple3 = ("one", "two", "three")
+print("\n")
 
-(fi, se, th) = tuple3
+highest_grade: int = 0
+highest_grade_index = 0
 
-print(f"fi: {type(fi)}, {fi}")
+index = 0
+for info in students:
+    if info[1] > highest_grade:
+        highest_grade = info[1]
+        highest_grade_index = index
+    index += 1
 
-del tuple3, fi, se, th
+del highest_grade
+del index
 
-tuple3 = 1, 3, 5, 7
+print(f"Highest Grade: {students[highest_grade_index][0]}")
+print(f"Grade: {students[highest_grade_index][1]}")
 
-(fi, *si) = tuple3
+del students, highest_grade_index
 
-print(si)
+#
+#
+#
+#
+#
 
-tupleMeow = (12, 5, 8, 21, 30, 7, 16)
 
-for num in tupleMeow:
-    if num % 2 == 0:
-        print(num)
+def calculate(inputs: tuple[int, int]) -> tuple[int, int, int]:
+    return (
+        int(inputs[0] + inputs[1]),
+        int(inputs[0] - inputs[1]),
+        int(inputs[0] * inputs[1]),
+    )
 
-print("===================================================")
 
-for index in range(len(tupleMeow)):
-    print(index)
+def printResult(inputs: tuple[int, int], results: tuple[int, int, int]) -> None:
+    (sum, difference, product) = results
+    (FN, SN) = inputs
+    print(f"{FN} + {SN}: {sum}")
+    print(f"{FN} - {SN}: {difference}")
+    print(f"{FN} * {SN}: {product}")
 
-print("===================================================")
 
-combined_tuple = tupleKo + tupleMeow
-print(len(combined_tuple))
+inputs = (1, 3)
+results = calculate(inputs)
 
-print("===================================================")
+printResult(inputs, results)
 
-print(combined_tuple)
+del inputs, results
+print("\n")
+
+#
+#
+#
+#
+#
+
+print("================ NEW ===============\n")
+
+students = (("Alice", 85), ("Bob", 92), ("Charlie", 78), ("David", 95), ("Eve", 88))
+
+
+def printRecord(record: tuple[str, int]) -> None:
+    (name, grade) = record
+    print(f"{name}: {grade}")
+
+
+def printEverything(records) -> None:
+    for record in records:
+        printRecord(record)
+
+
+def calculateAverageGrade(records) -> float:
+    index = 0
+    total_grade: int = 0
+
+    while index < len(records):
+        total_grade += records[index][1]
+        index += 1
+
+    return float(total_grade / index)
+
+
+def findHighestGradeIndex(records) -> int:
+    highest_grade: int = 0
+    highest_grade_index: int = 0
+
+    index = 0
+    while index < len(records):
+        if records[index][1] > highest_grade:
+            highest_grade = records[index][1]
+            highest_grade_index = index
+        index += 1
+
+    return highest_grade_index
+
+
+def findLowestGradeIndex(records) -> int:
+    lowest_grade = records[0][1]
+    lowest_grade_index = 0
+
+    index = 0
+    for record in records:
+        if records[index][1] < lowest_grade:
+            lowest_grade = records[index][1]
+            lowest_grade_index = index
+        index += 1
+
+    return lowest_grade_index
+
+
+def countNumberOfStudentsPassed(records, passingGrade) -> int:
+    count = 0
+
+    for record in records:
+        if record[1] >= passingGrade:
+            count += 1
+
+    return count
+
+
+def findStudentRecord(records) -> None:
+    def inputStudentName() -> str:
+        return input("Student's Name: ")
+
+    studentName = inputStudentName()
+
+    isStudentRecordExist = False
+
+    index = 0
+    for record in records:
+        if studentName in record:
+            isStudentRecordExist = True
+            break
+
+        index += 1
+
+    if isStudentRecordExist:
+        printRecord(records[index])
+    else:
+        print(f"Record not found with student name: {studentName}")
