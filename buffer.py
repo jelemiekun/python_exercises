@@ -10,3 +10,6 @@ def createRange(start: int = 0, stop: int = 1, step: int = 1) -> list[int]:
         start += step
 
     return my_list
+
+
+var_buffer = 10

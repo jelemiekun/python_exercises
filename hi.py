@@ -1,12 +1,12 @@
 import buffer
+import second
 
-my_range = range(0, 10, 2)
+buffer.greeting("from hi.buffer!")
+second.buffer.greeting("from hi.second.buffer!")
 
-for num in my_range:
-    print(num)
+print(buffer.var_buffer)
+print(second.var_buffer)
 
-buffer.greeting("Jason")
+print(dir(buffer))
 
-my_list = buffer.createRange(10, 20, 2)
-
-print(my_list)
+print(__file__)
