@@ -1,23 +1,21 @@
-class Car:
-    what_type: str = "Car"
-
-    def __init__(self, brand: str, num_of_wheels: int, production_year: int) -> None:
-        self.brand: str = brand
-        self.num_of_wheels: int = num_of_wheels
-        self.PRODUCTION_YEAR: int = production_year
-
-        print("Car instance created.")
-
-    def print_properties(self) -> None:
-        print(f"Brand: {self.brand}")
-        print(f"Number of wheels: {self.num_of_wheels}")
-        print(f"Production year: {self.PRODUCTION_YEAR}")
+from Classes import Student
+from Enums import Courses
 
 
-bmw: Car = Car("BMW", 4, 2024)
+def exercise_1() -> None:
+    student_1: Student.Student = Student.Student("Vemi", 19, Courses.Course.BSBA_MAJ_FM)
+    student_2: Student.Student = Student.Student(
+        "Amoha", 17, Courses.Course.BSBA_MAJ_HRM
+    )
+    student_3: Student.Student = Student.Student("Jole", 60, Courses.Course.BSBA_MAJ_OM)
 
-bmw.print_properties()
+    student_1.display_information()
+    student_2.display_information()
+    student_3.display_information()
 
-ahamay: Car = Car("Yamaha", 16, 2019)
 
-ahamay.print_properties()
+def main() -> None:
+    exercise_1()
+
+
+main()
