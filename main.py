@@ -1,6 +1,6 @@
-import sys
-
 import constants
+import geometry
+import util
 import variables
 
 
@@ -8,47 +8,70 @@ def print_menu() -> None:
     print(constants.MENU_MESSAGE)
 
 
-def is_input_valid(input: str, valid_input: str) -> bool:
-    for num in valid_input:
-        if input == num:
-            return True
-
-    return False
-
-
-def ask_input_integer(start: int, end: int, message: str) -> int:
-    valid_input_range: range = range(start, end)
-
-    user_input: str = input(message)
-
-    if user_input.strip() == "":
-        return -1
-
-    if is_input_valid(user_input, str(list(valid_input_range))):
-        return int(user_input)
-
-    return -1
-
-
 def input_loop_validation() -> None:
     print_menu()
 
-    while variables.user_input == -1:
-        variables.user_input = ask_input_integer(
-            constants.MENU_INPUT_START,
-            constants.MENU_INPUT_END,
-            constants.MENU_INPUT_MESSAGE,
-        )
+    variables.user_input = util.ask_input_integer(
+        constants.MENU_INPUT_START,
+        constants.MENU_INPUT_END,
+        constants.MENU_INPUT_MESSAGE,
+    )
 
 
-def is_input_exit() -> None:
-    if variables.user_input == 5:
-        sys.exit()
+def is_input_exit() -> bool:
+    return variables.user_input == constants.MENU_INPUT_END - 1
+
+
+def determine_user_operation() -> None:
+    # If menu gets updated, update this also
+    match variables.user_input:
+        case 1:
+            variables.operation_type = constants.Operation_Type.OPERATION_NAME_CIRCLE
+        case 2:
+            variables.operation_type = constants.Operation_Type.OPERATION_NAME_RECTANGLE
+        case 3:
+            variables.operation_type = constants.Operation_Type.OPERATION_NAME_TRIANGLE
+        case 4:
+            variables.operation_type = constants.Operation_Type.OPERATION_NAME_DISTANCE
+        case 5:
+            variables.operation_type = constants.Operation_Type.OPERATION_NAME_HISTORY
+        case 6:
+            variables.operation_type = (
+                constants.Operation_Type.OPERATION_NAME_STATISTICS
+            )
+        case _:
+            variables.operation_type = constants.Operation_Type.OPERATION_MENU_DEFAULT
+
+
+def perform_user_operation() -> None:
+    # If menu gets updated, update this also
+    match variables.operation_type:
+        case constants.Operation_Type.OPERATION_NAME_CIRCLE:
+            geometry.operation_circle()
+        case constants.Operation_Type.OPERATION_NAME_RECTANGLE:
+            geometry.operation_rectangle()
+        case constants.Operation_Type.OPERATION_NAME_TRIANGLE:
+            geometry.operation_triangle()
+        case constants.Operation_Type.OPERATION_NAME_DISTANCE:
+            geometry.operation_distance()
+        case constants.Operation_Type.OPERATION_NAME_HISTORY:
+            pass  # TODO:
+        case constants.Operation_Type.OPERATION_NAME_STATISTICS:
+            pass  # TODO:
+        case _:
+            print("ERROR: Invalid operation.")
 
 
 def main() -> None:
-    input_loop_validation()
-    is_input_exit()
+    while not variables.exit_program:
+        input_loop_validation()
+        variables.exit_program = is_input_exit()
+
+        if not variables.exit_program:
+            determine_user_operation()
+            perform_user_operation()
+
+    print("Thank you. Goodbye.")
 
 
 main()
