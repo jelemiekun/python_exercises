@@ -14,8 +14,8 @@ def operation_circle() -> None:
 
     util.add_operation_to_list(
         constants.Operation_Type.OPERATION_NAME_CIRCLE,
-        [{"radius": radius}],
-        [{"area": area}, {"circumference": circumference}],
+        {"radius": radius},
+        {"area": area, "circumference": circumference},
     )
 
 
@@ -32,8 +32,8 @@ def operation_rectangle() -> None:
 
     util.add_operation_to_list(
         constants.Operation_Type.OPERATION_NAME_RECTANGLE,
-        [{"width": width}, {"height": height}],
-        [{"area": area}, {"diagonal": diagonal}],
+        {"width": width, "height": height},
+        {"area": area, "diagonal": diagonal},
     )
 
 
@@ -49,8 +49,8 @@ def operation_triangle() -> None:
 
     util.add_operation_to_list(
         constants.Operation_Type.OPERATION_NAME_TRIANGLE,
-        [{"base": base}, {"height": height}],
-        [{"area": area}],
+        {"base": base, "height": height},
+        {"area": area},
     )
 
 
@@ -72,6 +72,6 @@ def operation_distance() -> None:
 
     util.add_operation_to_list(
         constants.Operation_Type.OPERATION_NAME_DISTANCE,
-        [{"x_1": x_1}, {"y_1": y_1}, {"x_2": x_2}, {"y_2": y_2}],
-        [{"distance": distance}],
+        {"x_1": x_1, "y_1": y_1, "x_2": x_2, "y_2": y_2},
+        {"distance": distance},
     )

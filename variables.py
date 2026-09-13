@@ -12,8 +12,8 @@ history: list[
         int,
         datetime.datetime,
         constants.Operation_Type,
-        list[dict[str, int]],
-        list[dict[str, float]],
+        dict[str, int],
+        dict[str, float],
     ]
 ] = []
 # Operation_ID,

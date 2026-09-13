@@ -62,6 +62,13 @@ def perform_user_operation() -> None:
             print("ERROR: Invalid operation.")
 
 
+def print_result() -> None:
+    results = variables.history[-1][4]
+
+    for output in results:
+        print(output)
+
+
 def main() -> None:
     while not variables.exit_program:
         input_loop_validation()
@@ -70,6 +77,7 @@ def main() -> None:
         if not variables.exit_program:
             determine_user_operation()
             perform_user_operation()
+            print_result()
 
     print("Thank you. Goodbye.")
 

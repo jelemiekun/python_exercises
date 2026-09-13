@@ -35,8 +35,8 @@ def ask_input_integer(start: int, end: int, message: str) -> int:
 
 def add_operation_to_list(
     operation_type: constants.Operation_Type,
-    inputs: list[dict[str, int]],
-    outputs: list[dict[str, float]],
+    inputs: dict[str, int],
+    outputs: dict[str, float],
 ) -> None:
     variables.history_count += 1
     timestamp: datetime.datetime = datetime.datetime.now()
