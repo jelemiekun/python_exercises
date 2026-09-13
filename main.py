@@ -63,10 +63,12 @@ def perform_user_operation() -> None:
 
 
 def print_result() -> None:
-    results = variables.history[-1][4]
+    results: dict[str, float] = variables.history[-1][4]
 
-    for output in results:
-        print(output)
+    results_keys = results.keys()
+
+    for key in results_keys:
+        print(f"{key}: {results[key]}")
 
 
 def main() -> None:
