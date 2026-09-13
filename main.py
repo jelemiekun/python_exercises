@@ -87,7 +87,8 @@ def main() -> None:
             if util.is_operation_with_result():
                 print_result()
 
-            input("\nPress Enter to continue...")
+            blank: str = input("\nPress Enter to continue...")
+            del blank
 
     print("Thank you. Goodbye.")
 

@@ -1,4 +1,3 @@
-import sys
 from enum import Enum
 
 MENU_MESSAGE: str = """
