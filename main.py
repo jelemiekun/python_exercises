@@ -81,12 +81,7 @@ def main() -> None:
             determine_user_operation()
             perform_user_operation()
 
-            if (
-                variables.operation_type
-                != constants.Operation_Type.OPERATION_NAME_HISTORY
-                and variables.operation_type
-                != constants.Operation_Type.OPERATION_NAME_STATISTICS
-            ):
+            if util.is_operation_with_result():
                 print_result()
 
     print("Thank you. Goodbye.")

@@ -44,3 +44,11 @@ def add_operation_to_list(
     variables.history.append(
         (variables.history_count, timestamp, operation_type, inputs, outputs)
     )
+
+
+def is_operation_with_result() -> bool:
+    return (
+        variables.operation_type != constants.Operation_Type.OPERATION_NAME_HISTORY
+        and variables.operation_type
+        != constants.Operation_Type.OPERATION_NAME_STATISTICS
+    )
