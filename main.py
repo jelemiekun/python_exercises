@@ -1,8 +1,8 @@
 import constants
+import data_processing
 import geometry
 import util
 import variables
-import data_processing
 
 
 def print_menu() -> None:
@@ -20,7 +20,7 @@ def input_loop_validation() -> None:
 
 
 def is_input_exit() -> bool:
-    return variables.user_input == constants.MENU_INPUT_END - 1
+    return variables.user_input == constants.MENU_INPUT_END
 
 
 def determine_user_operation() -> None:
@@ -80,7 +80,14 @@ def main() -> None:
         if not variables.exit_program:
             determine_user_operation()
             perform_user_operation()
-            print_result()
+
+            if (
+                variables.operation_type
+                != constants.Operation_Type.OPERATION_NAME_HISTORY
+                and variables.operation_type
+                != constants.Operation_Type.OPERATION_NAME_STATISTICS
+            ):
+                print_result()
 
     print("Thank you. Goodbye.")
 
