@@ -2,6 +2,7 @@ import constants
 import geometry
 import util
 import variables
+import data_processing
 
 
 def print_menu() -> None:
@@ -55,9 +56,9 @@ def perform_user_operation() -> None:
         case constants.Operation_Type.OPERATION_NAME_DISTANCE:
             geometry.operation_distance()
         case constants.Operation_Type.OPERATION_NAME_HISTORY:
-            pass  # TODO:
+            data_processing.display_history()
         case constants.Operation_Type.OPERATION_NAME_STATISTICS:
-            pass  # TODO:
+            data_processing.display_statistics()
         case _:
             print("ERROR: Invalid operation.")
 

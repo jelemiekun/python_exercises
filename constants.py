@@ -31,10 +31,10 @@ VALID_INPUT_INTEGERS = "0123456789"
 
 # If menu gets updated, update this also
 class Operation_Type(Enum):
-    OPERATION_NAME_CIRCLE = "Circle"
-    OPERATION_NAME_RECTANGLE = "Rectangle"
-    OPERATION_NAME_TRIANGLE = "Triangle"
-    OPERATION_NAME_DISTANCE = "Distance"
-    OPERATION_NAME_HISTORY = "History"
-    OPERATION_NAME_STATISTICS = "Statistics"
+    OPERATION_NAME_CIRCLE = "Circle      "
+    OPERATION_NAME_RECTANGLE = "Rectangle   "
+    OPERATION_NAME_TRIANGLE = "Triangle    "
+    OPERATION_NAME_DISTANCE = "Distance    "
+    OPERATION_NAME_HISTORY = "History     "
+    OPERATION_NAME_STATISTICS = "Statistics  "
     OPERATION_MENU_DEFAULT = "Default"
