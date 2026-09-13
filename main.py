@@ -18,6 +18,8 @@ def input_loop_validation() -> None:
         constants.MENU_INPUT_MESSAGE,
     )
 
+    print("\n")
+
 
 def is_input_exit() -> bool:
     return variables.user_input == constants.MENU_INPUT_END
@@ -68,6 +70,7 @@ def print_result() -> None:
 
     results_keys = results.keys()
 
+    print("\n")
     for key in results_keys:
         print(f"{key}: {results[key]}")
 
@@ -83,6 +86,8 @@ def main() -> None:
 
             if util.is_operation_with_result():
                 print_result()
+
+            input("\nPress Enter to continue...")
 
     print("Thank you. Goodbye.")
 
