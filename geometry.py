@@ -24,7 +24,7 @@ def operation_rectangle() -> None:
         constants.OPERATION_INPUT_MINIMUM, constants.OPERATION_INPUT_MAXIMUM, "Width: "
     )
     height: int = util.ask_input_integer(
-        constants.OPERATION_INPUT_MINIMUM, constants.OPERATION_INPUT_MAXIMUM, "Width: "
+        constants.OPERATION_INPUT_MINIMUM, constants.OPERATION_INPUT_MAXIMUM, "Height: "
     )
 
     area: float = width * height
@@ -39,10 +39,10 @@ def operation_rectangle() -> None:
 
 def operation_triangle() -> None:
     base: int = util.ask_input_integer(
-        constants.OPERATION_INPUT_MINIMUM, constants.OPERATION_INPUT_MAXIMUM, "Width: "
+        constants.OPERATION_INPUT_MINIMUM, constants.OPERATION_INPUT_MAXIMUM, "Base: "
     )
     height: int = util.ask_input_integer(
-        constants.OPERATION_INPUT_MINIMUM, constants.OPERATION_INPUT_MAXIMUM, "Width: "
+        constants.OPERATION_INPUT_MINIMUM, constants.OPERATION_INPUT_MAXIMUM, "Height: "
     )
 
     area: float = (base * height) / 2
@@ -56,16 +56,16 @@ def operation_triangle() -> None:
 
 def operation_distance() -> None:
     x_1: int = util.ask_input_integer(
-        constants.OPERATION_INPUT_MINIMUM, constants.OPERATION_INPUT_MAXIMUM, "Width: "
+        constants.OPERATION_INPUT_MINIMUM, constants.OPERATION_INPUT_MAXIMUM, "x_1: "
     )
     y_1: int = util.ask_input_integer(
-        constants.OPERATION_INPUT_MINIMUM, constants.OPERATION_INPUT_MAXIMUM, "Width: "
+        constants.OPERATION_INPUT_MINIMUM, constants.OPERATION_INPUT_MAXIMUM, "y_1: "
     )
     x_2: int = util.ask_input_integer(
-        constants.OPERATION_INPUT_MINIMUM, constants.OPERATION_INPUT_MAXIMUM, "Width: "
+        constants.OPERATION_INPUT_MINIMUM, constants.OPERATION_INPUT_MAXIMUM, "x_2: "
     )
     y_2: int = util.ask_input_integer(
-        constants.OPERATION_INPUT_MINIMUM, constants.OPERATION_INPUT_MAXIMUM, "Width: "
+        constants.OPERATION_INPUT_MINIMUM, constants.OPERATION_INPUT_MAXIMUM, "y_2: "
     )
 
     distance: float = math.sqrt(pow(x_2 - x_1, 2) + pow(y_2 - y_1, 2))

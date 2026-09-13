@@ -18,14 +18,15 @@ MENU_MESSAGE: str = """
 MENU_INPUT_START: int = 1
 
 # If menu gets updated, update this also
-# If menu is up to 5, add 1 here. Basically, MENU_END + 1
-MENU_INPUT_END: int = 8
+MENU_INPUT_END: int = 7
 
 MENU_INPUT_MESSAGE: str = "Choose an option: "
 
 OPERATION_INPUT_MINIMUM: int = 0
 
 OPERATION_INPUT_MAXIMUM: int = 2**15 - 1
+
+VALID_INPUT_INTEGERS = "0123456789"
 
 
 # If menu gets updated, update this also
