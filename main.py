@@ -1,22 +1,26 @@
-from io import TextIOWrapper
+import numpy as np
+
+a = np.array([1, 2, 3], "u8")
+print(a)
 
 
-def file_read(path: str) -> None:
-    file: TextIOWrapper = open(path, "rt")
+b = np.array([[1, 2, 3, 4, 5, 6], [7, 8, 9, 10, 11, 12]])
+print(b)
 
-    print(file.read())
+c = np.array(
+    [
+        [[2, 4, 6, 8, 10, 12], [3, 6, 9, 12, 15, 18]],
+        [[4, 8, 12, 16, 20, 24], [5, 10, 15, 20, 25, 30]],
+    ],
+    "u1",
+)
 
-    file.close()
+print(a.ndim, b.ndim)
+print(a.shape)
 
+print(c.shape)
+print(c.dtype)
 
-def file_append(path: str, string: str) -> int:
-    file: TextIOWrapper = open("dummy.txt", "at")
-    line_added: int = file.write(f"\n{string}")
-    file.close()
-    return line_added
+c[1, 1, 0:-1:2] = [255, 254, 253]
 
-
-FILE_PATH: str = "dummy.txt"
-file_read(FILE_PATH)
-print(file_append(FILE_PATH, "MEOW!!!"))
-file_read(FILE_PATH)
+print(c)
