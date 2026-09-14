@@ -1,14 +1,22 @@
-import Professor
-import Student
-import University
+from io import TextIOWrapper
 
-rtu: University.University = University.University("RTU")
 
-p_william: Professor.Professor = Professor.Professor("William")
+def file_read(path: str) -> None:
+    file: TextIOWrapper = open(path, "rt")
 
-rtu.add_professor(p_william)
+    print(file.read())
 
-for index in range(1, 5):
-    p_william.add_student(Student.Student(str(f"student_{index}")))
+    file.close()
 
-rtu.display_all_university_students()
+
+def file_append(path: str, string: str) -> int:
+    file: TextIOWrapper = open("dummy.txt", "at")
+    line_added: int = file.write(f"\n{string}")
+    file.close()
+    return line_added
+
+
+FILE_PATH: str = "dummy.txt"
+file_read(FILE_PATH)
+print(file_append(FILE_PATH, "MEOW!!!"))
+file_read(FILE_PATH)
