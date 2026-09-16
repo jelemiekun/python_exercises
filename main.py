@@ -1,25 +1,30 @@
 import numpy as np
 
-arr = np.zeros((2, 5))
 
-ones = np.ones((3, 3), "u1")
+def prac_1() -> None:
+    arr = np.array(
+        [
+            [20, 34, 48, 28, 4],
+            [34, 43, 45, 22, 34],
+            [34, 28, 27, 45, 23],
+            [23, 50, 26, 12, 25],
+            [42, 23, 43, 47, 37],
+        ]
+    )
 
-full = np.full((999, 999), 255, "u1")
+    print(arr)
+    print(f"1. {arr[2, 1]}")
+    print(f"2. {arr[3, :]}")
+    print(f"3. {arr[:, 0]}")  # Supposed column 0 is math
+    print(f"4. {arr[1:3, :]}")
+    print(f"5. {arr.shape}, {arr.size}, {arr.dtype}")
 
-random_a = np.random.randint(100, size=(3, 3))
-
-identity = np.identity(50)
-
-challenge = np.ones((5, 5))
-
-challenge[1:-1, 1:-1] = 0
-challenge[2, 2] = 9
+    print(np.random.randint(100, size=(arr.shape)))
 
 
-print(arr)
-print(ones)
-print(full)
-print(random_a)
-print(identity)
+def prac_calls() -> None:
+    # prac_1()
+    pass
 
-print(challenge)
+
+prac_calls()
