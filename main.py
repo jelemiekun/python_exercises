@@ -2,29 +2,69 @@ import numpy as np
 
 
 def prac_1() -> None:
-    arr = np.array(
+    inventory = np.array(
         [
-            [20, 34, 48, 28, 4],
-            [34, 43, 45, 22, 34],
-            [34, 28, 27, 45, 23],
-            [23, 50, 26, 12, 25],
-            [42, 23, 43, 47, 37],
+            12,
+            8,
+            15,
+            20,
+            7,
+            11,
+            14,
+            9,
+            18,
+            6,
+            13,
+            21,
+            10,
+            16,
+            5,
+            19,
+            8,
+            12,
+            17,
+            4,
+            14,
+            22,
+            9,
+            15,
         ]
     )
 
-    print(arr)
-    print(f"1. {arr[2, 1]}")
-    print(f"2. {arr[3, :]}")
-    print(f"3. {arr[:, 0]}")  # Supposed column 0 is math
-    print(f"4. {arr[1:3, :]}")
-    print(f"5. {arr.shape}, {arr.size}, {arr.dtype}")
+    inv_reshaped = inventory.reshape(4, 6)
 
-    print(np.random.randint(100, size=(arr.shape)))
+    inv_bin_count = np.zeros(inv_reshaped.shape[1])
+
+    index: int = 0
+    for element in np.nditer(inv_reshaped):
+        inv_bin_count[index] += element
+
+        index += 1
+
+        if index >= inv_reshaped.shape[1]:
+            index = 0
+
+    print(f"Each bin's inventory: {inv_bin_count}")
+    del index
+
+    inv_aisle_count = np.zeros(inv_reshaped.shape[0])
+    index: int = 0
+
+    for element in np.nditer(inv_reshaped):
+        inv_aisle_count[index] += element
+
+        index += 1
+
+        if index >= inv_reshaped.shape[0]:
+            index = 0
+
+    print(f"Each aisle's inventory: {inv_aisle_count}")
 
 
-def prac_calls() -> None:
-    # prac_1()
+def prac_2() -> None:
     pass
 
 
-prac_calls()
+def prac_3() -> None:
+    for index in range(1, 6):
+        print(index)
