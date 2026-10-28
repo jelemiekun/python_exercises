@@ -1,70 +1,26 @@
 import numpy as np
 
+list_a: list[str] = [
+    "a",
+    "b",
+    "r",
+    "d",
+]
 
-def prac_1() -> None:
-    inventory = np.array(
-        [
-            12,
-            8,
-            15,
-            20,
-            7,
-            11,
-            14,
-            9,
-            18,
-            6,
-            13,
-            21,
-            10,
-            16,
-            5,
-            19,
-            8,
-            12,
-            17,
-            4,
-            14,
-            22,
-            9,
-            15,
-        ]
-    )
+np_list_a = np.array(list_a)
 
-    inv_reshaped = inventory.reshape(4, 6)
+print(np_list_a)
 
-    inv_bin_count = np.zeros(inv_reshaped.shape[1])
+fr_np_to_ls = np_list_a.tolist()
 
-    index: int = 0
-    for element in np.nditer(inv_reshaped):
-        inv_bin_count[index] += element
+print(type(fr_np_to_ls))
 
-        index += 1
+np.set_printoptions(3)
 
-        if index >= inv_reshaped.shape[1]:
-            index = 0
+URL = "https://www.ncei.noaa.gov/pub/data/cdo/samples/GHCND_sample_csv.csv"
 
-    print(f"Each bin's inventory: {inv_bin_count}")
-    del index
+raw = np.loadtxt(URL, skiprows=1, usecols=[6, 7, 8], delimiter=",")
 
-    inv_aisle_count = np.zeros(inv_reshaped.shape[0])
-    index: int = 0
+week_one = raw[0:7, 5:]
 
-    for element in np.nditer(inv_reshaped):
-        inv_aisle_count[index] += element
-
-        index += 1
-
-        if index >= inv_reshaped.shape[0]:
-            index = 0
-
-    print(f"Each aisle's inventory: {inv_aisle_count}")
-
-
-def prac_2() -> None:
-    pass
-
-
-def prac_3() -> None:
-    for index in range(1, 6):
-        print(index)
+print(raw)
