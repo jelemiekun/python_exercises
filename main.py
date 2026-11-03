@@ -23,9 +23,42 @@ def value_greater_than_mean(np_arr) -> None:
     print(np_arr > np.mean(np_arr))
 
 
+def question_2_2_1() -> None:
+    tmax_mon = np.max(raw[3::7, 1])
+    print(tmax_mon)
+
+
+def question_2_2_2() -> None:
+    mondays = raw[3::7, 1]
+    sd = np.sqrt((np.sum(np.square(mondays - np.mean(mondays)))) / len(mondays))
+    print(sd)
+
+
+def question_2_3_1() -> None:
+    axis_0_mean = np.mean(raw, axis=0)
+    print(axis_0_mean[1:])
+
+
+def prac_2_5_1() -> None:
+    print(raw[0][0])
+    print(raw[[0, 2]])
+
+
+def prac_2_5_3() -> None:
+    whole = raw[:, 1:] > 0
+    raw_1 = raw[:, 1:]
+    print(raw_1[whole])
+
+
 normalize(arr_2)
 
 value_greater_than_mean(arr_1)
 
 raw_no_missing = raw[:, 3] < 999.9
 print(np.mean(raw_no_missing))
+
+question_2_2_1()
+question_2_2_2()
+question_2_3_1()
+prac_2_5_1()
+prac_2_5_3()
